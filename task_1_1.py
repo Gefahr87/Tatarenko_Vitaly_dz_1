@@ -55,39 +55,34 @@ def naive_realisation(duration: int):
 
 
 def one_cycle_realisation(duration):
-    total_time = ['']
+    total_time = []
     """
     Решение задачи с использования циклов.
     Можно два, но высший пилотаж через 1 цикл.
     Переменная total_time - строковая переменная,
     содержащая в себе промежуток времени в нужно формате
     """
-    d = 0
-    h = 0
-    m = 0
-    s = 0
+    d, h, m, s = 0, 0 ,0, 0
     duration = []
     for i in range(int(input('Enter amount enters:'))):
         duration.append(int(input('Enter duration:')))
-        total_time.append("")
         d = duration[i] // 86400
         h = (duration[i] % 86400) // 3600
         m = ((duration[i] % 86400) % 3600) // 60
         s = ((duration[i] % 86400) % 3600) % 60
         if duration[i] < 60:
-            total_time[i] = str(s) + " сек"
+            total_time.append(str(s) + " сек")
             #print(int(s), ' сек ')
         elif duration[i] < 3600:
-            total_time[i] = str(m) + " мин " + str(s) + " сек"
+            total_time.append(str(m) + " мин " + str(s) + " сек")
             #print(int(m), ' мин ',str(s), ' сек ')
         elif duration[i] < 86400:
-            total_time[i] = str(h) + " час " + str(m) + " мин " + str(s) + " сек"
+            total_time.append(str(h) + " час " + str(m) + " мин " + str(s) + " сек")
             #print(int(h), ' час ',str(m), ' мин ',str(s), ' сек ')
         else:
-            total_time[i] = str(d) + " дн " + str(h) + " час " + str(m) + " мин " + str(s) + " сек"
+            total_time.append(str(d) + " дн " + str(h) + " час " + str(m) + " мин " + str(s) + " сек")
             #print(str(d),' дн ',str(h), ' час ',str(m), ' мин ',str(s), ' сек ')
         print(total_time[i])
-    total_time.remove("")
     return total_time
 
 if __name__ == '__main__':
