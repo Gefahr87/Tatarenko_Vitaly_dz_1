@@ -1,1 +1,0 @@
-Tatarenko_Vitaly_dz_1
