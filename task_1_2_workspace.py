@@ -14,8 +14,22 @@
 
 def sum_list_1(dataset: list) -> int:
     """Вычисляет сумму чисел списка dataset, сумма цифр которых делится нацело на 7"""
-    # место для написания кода
-    return 1  # Верните значение полученной суммы
+    acc_cifr = 0
+    result = 0
+    #print('Элементов в списке: ', len(my_list))
+    for i in range(len(my_list)):
+        cifr = my_list[i]
+        while cifr != 0:
+            acc_cifr += cifr % 10
+            #print('Сумма =', acc_cifr)
+            cifr = (cifr // 10)
+            #print(cifr)
+        if acc_cifr % 7 == 0:
+            result += my_list[i]
+            #print('Промежуточная сумма = ', result)
+        acc_cifr = 0
+    print('Итоговая сумма по заданию 1_2_1= ', end="")
+    return result  # Верните значение полученной суммы
 
 
 def sum_list_2(dataset: list) -> int:
@@ -27,9 +41,15 @@ def sum_list_2(dataset: list) -> int:
 
 if __name__ == '__main__':
     my_list = []  # Соберите нужный список по заданию
-    for idx in range(1000):
-        if (idx+1) % 2:
-            my_list.append((idx+1) ** 3)
+    ''' не знаю какой цикл for будет лечше, оставил с доп. параметрами вместо:
+        for idx in range(1000):
+           if (idx + 1) % 2 == 0:
+               my_list.append(idx ** 3)
+        print(my_list)
+    '''
+    for idx in range(1, 1000, 2):
+        my_list.append(idx ** 3)
+    #print(my_list)
     result_1 = sum_list_1(my_list)
     print(result_1)
     result_2 = sum_list_2(my_list)
